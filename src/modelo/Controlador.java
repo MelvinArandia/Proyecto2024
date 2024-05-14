@@ -45,7 +45,7 @@ public class Controlador {
         interfazUsuario.mostrarPanelInicio();
     }
     public void agregarTarea(String titulo, String descripcion, String fechaLimite, String estado, int prioridad, String etiqueta) {
-        Tarea nuevaTarea = new Tarea(titulo, descripcion, fechaLimite, estado, prioridad, etiqueta);
+        Tarea nuevaTarea = new Tarea(titulo, descripcion, fechaLimite, estado, prioridad);
         gestorTareas.agregarTarea(nuevaTarea);
     }
 

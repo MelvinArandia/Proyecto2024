@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class GestorUsuarios {
     private static final String DIRECTORIO_USUARIOS = "usuarios/";
 
-    public static boolean registrarUsuario(Usuario usuario) {// solo recibe un usuario con el nombre el correo y el usuario mmm creo que lo borraron entonces xd
+    public static boolean registrarUsuario(Usuario usuario) {
         String nombreArchivo = DIRECTORIO_USUARIOS + usuario.getNombreUsuario() + ".txt";
         File archivo = new File(nombreArchivo);
 
@@ -19,7 +19,7 @@ public class GestorUsuarios {
             if (!archivo.exists()) {
                 archivo.getParentFile().mkdirs();
                 archivo.createNewFile();
-// pero esto es con bluej  no funciona en netbeasn?
+
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
                     writer.write(usuario.getNombre());
                     writer.newLine();
@@ -28,7 +28,7 @@ public class GestorUsuarios {
                     writer.write(usuario.getNombreUsuario());
                     writer.newLine();
                     writer.write(usuario.getContraseña());
-                }//ese es?deberia de esar en tu usuario pero no hay eso xd a ver espera
+                }
 
                 JOptionPane.showMessageDialog(null, "¡Registro exitoso! Bienvenido.");
                 return true;
@@ -135,7 +135,7 @@ public class GestorUsuarios {
                                     String estado = datosTemp[3];
                                     int prioridad = Integer.parseInt(datosTemp[4]);
                                     String etiqueta = datosTemp[5];
-                                    Tarea tarea = new Tarea(titulo, descripcion, fechaLimite, estado, prioridad, etiqueta);
+                                    Tarea tarea = new Tarea(titulo, descripcion, fechaLimite, estado, prioridad);
                                     tareas.agregarTarea(tarea);
                                 }
                             }

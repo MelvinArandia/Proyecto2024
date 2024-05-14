@@ -1,5 +1,8 @@
 package vistas;
 
+import javax.swing.JOptionPane;
+import modelo.Tarea;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -16,12 +19,13 @@ public class bienvenido extends javax.swing.JFrame {
      */
     public bienvenido() {
         initComponents();
+        this.setLocationRelativeTo(null);
         jpanel_agregar.setVisible(false);
         jpanel_eliminar.setVisible(false);
         jpanel_filtrar.setVisible(false);
         jpanel_modificar.setVisible(false);
         jpanel_mostrar.setVisible(false);        
-        setLocationRelativeTo(null);
+     
     }
 
     /**
@@ -34,7 +38,6 @@ public class bienvenido extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButtonSalir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabelicon = new javax.swing.JLabel();
         jButtonAgregarTarea = new javax.swing.JButton();
@@ -47,22 +50,15 @@ public class bienvenido extends javax.swing.JFrame {
         jpanel_modificar = new javax.swing.JPanel();
         jpanel_mostrar = new javax.swing.JPanel();
         jpanel_filtrar = new javax.swing.JPanel();
+        jButtonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
-        jButtonSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonSalir.setText("Salir");
-        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalirActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 204));
-
-        jLabelicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario.png"))); // NOI18N
+        jLabelicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/png.png"))); // NOI18N
 
         jButtonAgregarTarea.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonAgregarTarea.setText("Agregar Tarea");
@@ -115,14 +111,14 @@ public class bienvenido extends javax.swing.JFrame {
                     .addComponent(jButtonEliminar)
                     .addComponent(jButtonModificar)
                     .addComponent(jButtonMostrar)
-                    .addComponent(jButtonFiltrar)
-                    .addComponent(jLabelicon))
+                    .addComponent(jLabelicon)
+                    .addComponent(jButtonFiltrar))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelicon)
                 .addGap(34, 34, 34)
                 .addComponent(jButtonAgregarTarea)
@@ -134,63 +130,97 @@ public class bienvenido extends javax.swing.JFrame {
                 .addComponent(jButtonMostrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonFiltrar)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
 
-        javax.swing.GroupLayout jpanel_agregarLayout = new javax.swing.GroupLayout(jpanel_agregar);
-        jpanel_agregar.setLayout(jpanel_agregarLayout);
-        jpanel_agregarLayout.setHorizontalGroup(
-            jpanel_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jpanel_agregarLayout.setVerticalGroup(
-            jpanel_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jpanel_agregar.setBackground(new java.awt.Color(153, 204, 255));
 
-        javax.swing.GroupLayout jpanel_eliminarLayout = new javax.swing.GroupLayout(jpanel_eliminar);
-        jpanel_eliminar.setLayout(jpanel_eliminarLayout);
-        jpanel_eliminarLayout.setHorizontalGroup(
-            jpanel_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jpanel_eliminarLayout.setVerticalGroup(
-            jpanel_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jpanel_eliminar.setBackground(new java.awt.Color(153, 204, 255));
 
-        javax.swing.GroupLayout jpanel_modificarLayout = new javax.swing.GroupLayout(jpanel_modificar);
-        jpanel_modificar.setLayout(jpanel_modificarLayout);
-        jpanel_modificarLayout.setHorizontalGroup(
-            jpanel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jpanel_modificar.setBackground(new java.awt.Color(153, 204, 255));
+
+        jpanel_mostrar.setBackground(new java.awt.Color(153, 204, 255));
+
+        jpanel_filtrar.setBackground(new java.awt.Color(153, 204, 255));
+
+        javax.swing.GroupLayout jpanel_filtrarLayout = new javax.swing.GroupLayout(jpanel_filtrar);
+        jpanel_filtrar.setLayout(jpanel_filtrarLayout);
+        jpanel_filtrarLayout.setHorizontalGroup(
+            jpanel_filtrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 235, Short.MAX_VALUE)
         );
-        jpanel_modificarLayout.setVerticalGroup(
-            jpanel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jpanel_filtrarLayout.setVerticalGroup(
+            jpanel_filtrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 216, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jpanel_mostrarLayout = new javax.swing.GroupLayout(jpanel_mostrar);
         jpanel_mostrar.setLayout(jpanel_mostrarLayout);
         jpanel_mostrarLayout.setHorizontalGroup(
             jpanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jpanel_mostrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpanel_filtrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpanel_mostrarLayout.setVerticalGroup(
             jpanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jpanel_mostrarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpanel_filtrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jpanel_filtrarLayout = new javax.swing.GroupLayout(jpanel_filtrar);
-        jpanel_filtrar.setLayout(jpanel_filtrarLayout);
-        jpanel_filtrarLayout.setHorizontalGroup(
-            jpanel_filtrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout jpanel_modificarLayout = new javax.swing.GroupLayout(jpanel_modificar);
+        jpanel_modificar.setLayout(jpanel_modificarLayout);
+        jpanel_modificarLayout.setHorizontalGroup(
+            jpanel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanel_modificarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpanel_mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jpanel_filtrarLayout.setVerticalGroup(
-            jpanel_filtrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jpanel_modificarLayout.setVerticalGroup(
+            jpanel_modificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanel_modificarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpanel_mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        javax.swing.GroupLayout jpanel_eliminarLayout = new javax.swing.GroupLayout(jpanel_eliminar);
+        jpanel_eliminar.setLayout(jpanel_eliminarLayout);
+        jpanel_eliminarLayout.setHorizontalGroup(
+            jpanel_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_eliminarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpanel_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jpanel_eliminarLayout.setVerticalGroup(
+            jpanel_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jpanel_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jpanel_agregarLayout = new javax.swing.GroupLayout(jpanel_agregar);
+        jpanel_agregar.setLayout(jpanel_agregarLayout);
+        jpanel_agregarLayout.setHorizontalGroup(
+            jpanel_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanel_agregarLayout.createSequentialGroup()
+                .addGap(0, 9, Short.MAX_VALUE)
+                .addComponent(jpanel_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jpanel_agregarLayout.setVerticalGroup(
+            jpanel_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanel_agregarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpanel_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jButtonSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonSalir.setText("Salir");
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -199,95 +229,76 @@ public class bienvenido extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 353, Short.MAX_VALUE)
-                        .addComponent(jButtonSalir))
-                    .addComponent(jpanel_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(170, 170, 170)
-                    .addComponent(jpanel_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(16, 16, 16)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(180, 180, 180)
-                    .addComponent(jpanel_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(170, 170, 170)
-                    .addComponent(jpanel_mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(16, 16, 16)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(180, 180, 180)
-                    .addComponent(jpanel_filtrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                        .addGap(18, 18, 18)
+                        .addComponent(jpanel_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(27, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSalir)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jpanel_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonSalir))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(11, 11, 11)
+                        .addComponent(jpanel_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                        .addComponent(jButtonSalir)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addComponent(jpanel_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(29, 29, 29)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(26, 26, 26)
-                    .addComponent(jpanel_modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(19, 19, 19)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(36, 36, 36)
-                    .addComponent(jpanel_mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(9, 9, 9)))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(46, 46, 46)
-                    .addComponent(jpanel_filtrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMostrarActionPerformed
-       jpanel_agregar.setVisible(false);
-        jpanel_eliminar.setVisible(false);
-        jpanel_filtrar.setVisible(false);
-        jpanel_modificar.setVisible(false);
-        jpanel_mostrar.setVisible(true); 
+       String titulo = JOptionPane.showInputDialog("Ingrese el título de la tarea:"); 
     }//GEN-LAST:event_jButtonMostrarActionPerformed
 
     private void jButtonAgregarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarTareaActionPerformed
-        jpanel_agregar.setVisible(true);
-        jpanel_eliminar.setVisible(false);
-        jpanel_filtrar.setVisible(false);
-        jpanel_modificar.setVisible(false);
-        jpanel_mostrar.setVisible(false);  
+          String titulo = JOptionPane.showInputDialog("Ingrese el título de la tarea:");
+    String descripcion = JOptionPane.showInputDialog("Ingrese la descripción de la tarea:");
+    String fechaLimite = JOptionPane.showInputDialog("Ingrese la fecha límite (dd/mm/aaaa):");
+    String estado = JOptionPane.showInputDialog("Ingrese el estado (por hacer, en progreso, completada):");
+    int prioridad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la prioridad (1-5):"));
+
+    Tarea nuevaTarea = new Tarea(titulo, descripcion, fechaLimite, estado, prioridad);
+
+    // Preguntar si desea agregar etiquetas
+    String respuesta = JOptionPane.showInputDialog("¿Desea agregar etiquetas a esta tarea? (Si/No):");
+    if (respuesta != null && respuesta.equalsIgnoreCase("Si")) {
+        boolean agregarMasEtiquetas = true;
+        while (agregarMasEtiquetas) {
+            String etiqueta = JOptionPane.showInputDialog("Ingrese la etiqueta:");
+            nuevaTarea.setEtiqueta(etiqueta);
+            respuesta = JOptionPane.showInputDialog("¿Desea agregar otra etiqueta? (Si/No):");
+            if (respuesta == null || !respuesta.equalsIgnoreCase("Si")) {
+                agregarMasEtiquetas = false;
+            }
+        }
+    }
+
+    // Aquí puedes hacer lo que quieras con la nueva tarea, como guardarla en una lista, base de datos, etc.
+    // Ejemplo: listaTareas.add(nuevaTarea);
+
+    // Mostrar un mensaje indicando que la tarea ha sido agregada correctamente
+    JOptionPane.showMessageDialog(this, "Tarea agregada correctamente.");
     }//GEN-LAST:event_jButtonAgregarTareaActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
@@ -295,27 +306,15 @@ public class bienvenido extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        jpanel_agregar.setVisible(false);
-        jpanel_eliminar.setVisible(true);
-        jpanel_filtrar.setVisible(false);
-        jpanel_modificar.setVisible(false);
-        jpanel_mostrar.setVisible(false); 
+        String titulo = JOptionPane.showInputDialog("Ingrese el título de la tarea:");
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
-        jpanel_agregar.setVisible(false);
-        jpanel_eliminar.setVisible(false);
-        jpanel_filtrar.setVisible(false);
-        jpanel_modificar.setVisible(true);
-        jpanel_mostrar.setVisible(false); 
+        String titulo = JOptionPane.showInputDialog("Ingrese el título de la tarea:"); 
     }//GEN-LAST:event_jButtonModificarActionPerformed
 
     private void jButtonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFiltrarActionPerformed
-        jpanel_agregar.setVisible(false);
-        jpanel_eliminar.setVisible(false);
-        jpanel_filtrar.setVisible(true);
-        jpanel_modificar.setVisible(false);
-        jpanel_mostrar.setVisible(false); 
+  String titulo = JOptionPane.showInputDialog("Ingrese el título de la tarea:");
     }//GEN-LAST:event_jButtonFiltrarActionPerformed
 
     /**

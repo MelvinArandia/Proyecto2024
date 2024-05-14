@@ -11,7 +11,7 @@ public class Tarea {
     private String etiqueta;
     private List<SubTarea> subTarea;
 
-    public Tarea(String titulo, String descripcion, String fechaLimite, String estado, int prioridad, String etiqueta) {
+    public Tarea(String titulo, String descripcion, String fechaLimite, String estado, int prioridad) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fechaLimite = fechaLimite;

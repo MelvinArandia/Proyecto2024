@@ -48,7 +48,7 @@ public class registro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -92,6 +92,12 @@ public class registro extends javax.swing.JFrame {
         });
         jPanel2.add(nombretxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 218, 156, -1));
         jPanel2.add(gmailtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 258, 156, -1));
+
+        usuariotxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuariotxtActionPerformed(evt);
+            }
+        });
         jPanel2.add(usuariotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 298, 158, -1));
 
         contraseñatxt.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +107,7 @@ public class registro extends javax.swing.JFrame {
         });
         jPanel2.add(contraseñatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 338, 158, -1));
 
-        jLabelicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario.png"))); // NOI18N
+        jLabelicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/png.png"))); // NOI18N
         jPanel2.add(jLabelicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 41, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 470));
@@ -110,22 +116,21 @@ public class registro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void contraseñatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñatxtActionPerformed
-        // TODO add your handling code here:
+        String contraseña = contraseñatxt.getText();
     }//GEN-LAST:event_contraseñatxtActionPerformed
 
     private void registrarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarbtnActionPerformed
         String nombre = nombretxt.getText();
-        String email = gmailtxt.getText();
+        String gmail = gmailtxt.getText();
         String usuario = usuariotxt.getText();
         String contra = contraseñatxt.getText();
         
-        Usuario nuevo = new Usuario(nombre,email,usuario, contra);
+        Usuario nuevo = new Usuario(nombre,gmail,usuario, contra);
         GestorUsuarios.registrarUsuario(nuevo);
         dispose();
         Menu menu = new Menu();
         menu.setLocationRelativeTo(null);
         menu.show();
-        //ya funciona ahora que viste como hacer funcinar te toca hacer tu xd de iniciar sesion espera, eso de hacer que aparezca un recuadro pequeño en la panralla de registrar tareas y eso como se haria
     }//GEN-LAST:event_registrarbtnActionPerformed
 
     private void cancelarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarbtnActionPerformed
@@ -138,6 +143,10 @@ public class registro extends javax.swing.JFrame {
     private void nombretxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombretxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombretxtActionPerformed
+
+    private void usuariotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariotxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuariotxtActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
