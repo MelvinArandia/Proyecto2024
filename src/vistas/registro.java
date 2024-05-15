@@ -10,6 +10,7 @@ package vistas;
  * @author olive
  */
 import java.util.*;
+import javax.swing.JOptionPane;
 import modelo.*;
         
         
@@ -84,27 +85,9 @@ public class registro extends javax.swing.JFrame {
         jLabelContraseña.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelContraseña.setText("Contraseña:");
         jPanel2.add(jLabelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 338, -1, -1));
-
-        nombretxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombretxtActionPerformed(evt);
-            }
-        });
         jPanel2.add(nombretxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 218, 156, -1));
         jPanel2.add(gmailtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 258, 156, -1));
-
-        usuariotxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuariotxtActionPerformed(evt);
-            }
-        });
         jPanel2.add(usuariotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 298, 158, -1));
-
-        contraseñatxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contraseñatxtActionPerformed(evt);
-            }
-        });
         jPanel2.add(contraseñatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 338, 158, -1));
 
         jLabelicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/png.png"))); // NOI18N
@@ -114,23 +97,23 @@ public class registro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void contraseñatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñatxtActionPerformed
-        String contraseña = contraseñatxt.getText();
-    }//GEN-LAST:event_contraseñatxtActionPerformed
-
+//ya se registra y guarda, falta que recupere ese dato caudno se apreta iniciar es afuncion de contraseña para que es ? es la que se crea por defecto el boton
     private void registrarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarbtnActionPerformed
         String nombre = nombretxt.getText();
         String gmail = gmailtxt.getText();
         String usuario = usuariotxt.getText();
         String contra = contraseñatxt.getText();
-        
+         
+        if(nombre.isEmpty()|| gmail.isEmpty()|| usuario.isEmpty()|| contra.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese todos los datos para el registro");
+        }else{
         Usuario nuevo = new Usuario(nombre,gmail,usuario, contra);
         GestorUsuarios.registrarUsuario(nuevo);
         dispose();
         Menu menu = new Menu();
         menu.setLocationRelativeTo(null);
         menu.show();
+        }
     }//GEN-LAST:event_registrarbtnActionPerformed
 
     private void cancelarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarbtnActionPerformed
@@ -139,14 +122,6 @@ public class registro extends javax.swing.JFrame {
         menu.setLocationRelativeTo(null);
         menu.show();
     }//GEN-LAST:event_cancelarbtnActionPerformed
-
-    private void nombretxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombretxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombretxtActionPerformed
-
-    private void usuariotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariotxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usuariotxtActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -67,18 +67,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        usuariotxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuariotxtActionPerformed(evt);
-            }
-        });
-
-        contraseñatxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contraseñatxtActionPerformed(evt);
-            }
-        });
-
         Jlabelicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/png.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -138,20 +126,22 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usuariotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariotxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usuariotxtActionPerformed
-
     private void iniciobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciobtnActionPerformed
-
         String usuario = usuariotxt.getText();
         String password = contraseñatxt.getText();
-        GestorUsuarios.iniciarSesion(usuario, password);
+        UsuarioRegistrado usuarioo = GestorUsuarios.iniciarSesion(usuario, password);
+        if(usuario.isEmpty()|| password.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese sus credenciales");
+        }else if(usuarioo != null){
         JOptionPane.showMessageDialog(null, "Bienvenido");
         dispose();
         bienvenido nuevo = new bienvenido();
         nuevo.show();
-     
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Credenciales no validas");
+        }
+     //espera voy a firjarme como funciona la validacion esta enlazado con el controlador de lo que hizo la chica
     }//GEN-LAST:event_iniciobtnActionPerformed
 
     private void registrobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrobtnActionPerformed
@@ -161,11 +151,6 @@ public class Menu extends javax.swing.JFrame {
         nuevo.show();
       
     }//GEN-LAST:event_registrobtnActionPerformed
-
-    private void contraseñatxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñatxtActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_contraseñatxtActionPerformed
 
     /**
      * @param args the command line arguments

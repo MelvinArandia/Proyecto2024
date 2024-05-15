@@ -147,14 +147,8 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="usuariotxt">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usuariotxtActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="contrase&#xf1;atxt">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contrase&#xf1;atxtActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Jlabelicon">
           <Properties>
